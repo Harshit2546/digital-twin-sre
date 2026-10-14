@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 class PRReporter:
@@ -15,7 +15,7 @@ class PRReporter:
         iterations_taken: int,
         duration_seconds: float
     ) -> str:
-        timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+        timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
         before_status = "FAIL" if not before_metrics.get("passed") else "PASS"
         after_status = "PASS" if after_metrics.get("passed") else "FAIL"

@@ -1,5 +1,6 @@
 import os
 import shutil
+import socket
 import subprocess
 import time
 import uuid
@@ -12,6 +13,13 @@ from .safety import SafetyMonitor
 
 console = Console()
 
+def find_free_port() -> int:
+    """Finds an available ephemeral port allocated by the OS kernel."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(("", 0))
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        return s.getsockname()[1]
+
 class DigitalTwin:
     """
     Manages an isolated, disposable digital twin replica of the production system.
@@ -22,9 +30,9 @@ class DigitalTwin:
         self,
         incident_name: str,
         benchmark_dir: str,
-        api_port: int = 8000,
-        payments_port: int = 8001,
-        db_port: int = 5432,
+        api_port: Optional[int] = 0,
+        payments_port: Optional[int] = 0,
+        db_port: Optional[int] = 0,
         twins_base_dir: str = "/tmp/digital_twins"
     ):
         self.incident_name = incident_name
@@ -34,11 +42,19 @@ class DigitalTwin:
         self.workspace_dir = Path(twins_base_dir).resolve() / self.session_id
         self.shopfront_dir = self.workspace_dir / "shopfront"
 
-        self.api_port = api_port
-        self.payments_port = payments_port
-        self.db_port = db_port
-        self.api_url = f"http://localhost:{api_port}"
-        self.payments_url = f"http://localhost:{payments_port}"
+        # Dynamically assign ephemeral ports if 0 or None to prevent host port collisions
+        self.api_port = api_port if (api_port and api_port > 0) else find_free_port()
+        self.payments_port = payments_port if (payments_port and payments_port > 0) else find_free_port()
+        self.db_port = db_port if (db_port and db_port > 0) else find_free_port()
+
+        self.api_url = f"http://localhost:{self.api_port}"
+        self.payments_url = f"http://localhost:{self.payments_port}"
+
+        # Compose environment variables passed to all docker compose commands
+        self.compose_env = os.environ.copy()
+        self.compose_env["TWIN_API_PORT"] = str(self.api_port)
+        self.compose_env["TWIN_PAYMENTS_PORT"] = str(self.payments_port)
+        self.compose_env["TWIN_DB_PORT"] = str(self.db_port)
 
         self.safety_monitor = SafetyMonitor(self.payments_url)
         self.is_running = False
@@ -74,11 +90,12 @@ class DigitalTwin:
         subprocess.run("git add -A && git commit -m 'injected_state' || true", shell=True, cwd=self.shopfront_dir, capture_output=True)
 
         # 4. Spin up Docker Compose in the twin
-        console.print("[dim]Starting twin Docker containers...[/dim]")
+        console.print(f"[dim]Starting twin Docker containers (ports: API={self.api_port}, Payments={self.payments_port}, DB={self.db_port})...[/dim]")
         up_res = subprocess.run(
-            "docker compose down -v 2>/dev/null; docker compose up --build -d",
+            f"docker compose -p {self.session_id} down -v 2>/dev/null; docker compose -p {self.session_id} up --build -d",
             shell=True,
             cwd=self.shopfront_dir,
+            env=self.compose_env,
             capture_output=True,
             text=True
         )
@@ -195,9 +212,10 @@ class DigitalTwin:
         if not log_file.exists():
             # Try fetching from docker compose logs
             res = subprocess.run(
-                f"docker compose logs --tail={lines} {service}",
+                f"docker compose -p {self.session_id} logs --tail={lines} {service}",
                 shell=True,
                 cwd=self.shopfront_dir,
+                env=self.compose_env,
                 capture_output=True,
                 text=True
             )
@@ -216,9 +234,10 @@ class DigitalTwin:
         """Restarts a single container (e.g. 'api', 'worker') and waits for readiness."""
         console.print(f"[dim]Restarting service: {service}...[/dim]")
         res = subprocess.run(
-            f"docker compose restart {service}",
+            f"docker compose -p {self.session_id} restart {service}",
             shell=True,
             cwd=self.shopfront_dir,
+            env=self.compose_env,
             capture_output=True,
             text=True
         )
@@ -234,9 +253,10 @@ class DigitalTwin:
         """Rebuilds and restarts all twin containers (useful for DB schema changes or Dockerfile changes)."""
         console.print("[dim]Rebuilding twin services...[/dim]")
         res = subprocess.run(
-            "docker compose down -v && docker compose up --build -d",
+            f"docker compose -p {self.session_id} down -v && docker compose -p {self.session_id} up --build -d",
             shell=True,
             cwd=self.shopfront_dir,
+            env=self.compose_env,
             capture_output=True,
             text=True
         )
@@ -260,6 +280,7 @@ class DigitalTwin:
             cmd,
             shell=True,
             cwd=self.shopfront_dir,
+            env=self.compose_env,
             capture_output=True,
             text=True
         )
@@ -302,7 +323,12 @@ class DigitalTwin:
     def cleanup(self):
         """Tears down the digital twin containers and deletes the temporary workspace."""
         console.print(f"[dim]Cleaning up Digital Twin {self.session_id}...[/dim]")
-        subprocess.run("docker compose down -v 2>/dev/null", shell=True, cwd=self.shopfront_dir)
+        subprocess.run(
+            f"docker compose -p {self.session_id} down -v 2>/dev/null",
+            shell=True,
+            cwd=self.shopfront_dir,
+            env=self.compose_env
+        )
         shutil.rmtree(self.workspace_dir, ignore_errors=True)
         self.is_running = False
         console.print(f"[dim]Digital Twin {self.session_id} destroyed.[/dim]")

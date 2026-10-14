@@ -18,6 +18,9 @@ def main():
     parser.add_argument("--mock", action="store_true", help="Run with deterministic reference solver (offline)")
     parser.add_argument("--model", default=config.MODEL_NAME, help="Model name (e.g. gemini-2.5-pro, gemini-2.5-flash)")
     parser.add_argument("--keep-twin", action="store_true", help="Do not tear down twin after completion")
+    parser.add_argument("--api-port", type=int, default=config.DEFAULT_API_PORT, help="Host port for API (0 = auto-allocate free ephemeral port)")
+    parser.add_argument("--payments-port", type=int, default=config.DEFAULT_PAYMENTS_PORT, help="Host port for payments (0 = auto-allocate free ephemeral port)")
+    parser.add_argument("--db-port", type=int, default=config.DEFAULT_DB_PORT, help="Host port for DB (0 = auto-allocate free ephemeral port)")
     args = parser.parse_args()
 
     incident_path = config.BENCHMARK_DIR / "incidents" / args.incident
@@ -28,9 +31,9 @@ def main():
     twin = DigitalTwin(
         incident_name=args.incident,
         benchmark_dir=str(config.BENCHMARK_DIR),
-        api_port=config.DEFAULT_API_PORT,
-        payments_port=config.DEFAULT_PAYMENTS_PORT,
-        db_port=config.DEFAULT_DB_PORT,
+        api_port=args.api_port,
+        payments_port=args.payments_port,
+        db_port=args.db_port,
         twins_base_dir=str(config.TWIN_BASE_DIR)
     )
 
