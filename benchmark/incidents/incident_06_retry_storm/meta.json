@@ -1,0 +1,8 @@
+{
+  "difficulty": "medium",
+  "category": "config",
+  "root_cause_summary": "Aggressive retry configuration without backoff amplifying downstream transient failures into a retry storm",
+  "files_changed": [
+    "config/app.yaml"
+  ]
+}

@@ -1,0 +1,11 @@
+diff --git a/config/app.yaml b/config/app.yaml
+index d5aa238..57e20c1 100644
+--- a/config/app.yaml
++++ b/config/app.yaml
+@@ -1,5 +1,5 @@
+ db:
+-  pool_size: 20
++  pool_size: 1
+ payments:
+   timeout: 5.0
+   retry:

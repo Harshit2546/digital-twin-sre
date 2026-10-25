@@ -1,0 +1,13 @@
+diff --git a/api/main.py b/api/main.py
+index 53d2836..68a10da 100644
+--- a/api/main.py
++++ b/api/main.py
+@@ -118,7 +118,7 @@ def get_product(id: int):
+             if not r:
+                 raise HTTPException(status_code=404, detail="Product not found")
+             price = r[2]
+-            if config.get("features", {}).get("enable_new_discount", False):
++            if config.get("features", {}).get("enble_new_discount", False):
+                 price = int(price * 0.9)
+             prod = {"id": r[0], "name": r[1], "price": price, "inventory": r[3]}
+             if len(product_cache) < config.get("cache", {}).get("max_size", 1000):

@@ -1,0 +1,8 @@
+{
+  "difficulty": "medium",
+  "category": "db",
+  "root_cause_summary": "Schema migration added NOT NULL column to orders table without a DEFAULT value",
+  "files_changed": [
+    "db/1-init.sql"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "difficulty": "medium",
+  "category": "code",
+  "root_cause_summary": "Price update path fails to invalidate in-memory product cache, returning stale prices",
+  "files_changed": [
+    "api/main.py"
+  ]
+}

@@ -1,0 +1,15 @@
+diff --git a/config/app.yaml b/config/app.yaml
+index dc35c64..3e8d7f1 100644
+--- a/config/app.yaml
++++ b/config/app.yaml
+@@ -3,8 +3,8 @@ db:
+ payments:
+   timeout: 5.0
+   retry:
+-    max_attempts: 10
+-    backoff: 0.0
++    max_attempts: 2
++    backoff: 0.1
+ features:
+   enable_new_discount: true
+ cache:

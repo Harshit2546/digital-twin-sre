@@ -1,0 +1,28 @@
+diff --git a/config/app.yaml b/config/app.yaml
+index d5aa238..dc35c64 100644
+--- a/config/app.yaml
++++ b/config/app.yaml
+@@ -3,8 +3,8 @@ db:
+ payments:
+   timeout: 5.0
+   retry:
+-    max_attempts: 1
+-    backoff: 0.1
++    max_attempts: 10
++    backoff: 0.0
+ features:
+   enable_new_discount: true
+ cache:
+diff --git a/docker-compose.yml b/docker-compose.yml
+index 1cc89c8..af2328e 100644
+--- a/docker-compose.yml
++++ b/docker-compose.yml
+@@ -21,7 +21,7 @@ services:
+     ports:
+       - "8001:8001"
+     environment:
+-      - MODE=ok
++      - MODE=flaky
+ 
+   api:
+     build: ./api

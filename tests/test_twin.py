@@ -34,9 +34,10 @@ def test_find_free_port():
 
 def test_dynamic_port_twin_init():
     from runtime.twin import DigitalTwin
+    import config
     twin = DigitalTwin(
         incident_name="incident_01_config_error",
-        benchmark_dir="../benchmark",
+        benchmark_dir=str(config.BENCHMARK_DIR),
         api_port=0,
         payments_port=0,
         db_port=0

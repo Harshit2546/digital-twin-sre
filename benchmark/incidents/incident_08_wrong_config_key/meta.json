@@ -1,0 +1,8 @@
+{
+  "difficulty": "easy",
+  "category": "config",
+  "root_cause_summary": "Typo in configuration lookup key enble_new_discount causes fallback to false",
+  "files_changed": [
+    "api/main.py"
+  ]
+}

@@ -1,0 +1,11 @@
+db:
+  pool_size: 20
+payments:
+  timeout: 5.0
+  retry:
+    max_attempts: 1
+    backoff: 0.1
+features:
+  enable_new_discount: true
+cache:
+  max_size: 1000

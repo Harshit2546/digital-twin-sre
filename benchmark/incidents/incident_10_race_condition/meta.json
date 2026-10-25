@@ -1,0 +1,9 @@
+{
+  "difficulty": "hard",
+  "category": "code",
+  "root_cause_summary": "Missing UNIQUE constraint and check-then-act race condition causing duplicate orders for identical requests",
+  "files_changed": [
+    "api/main.py",
+    "db/1-init.sql"
+  ]
+}

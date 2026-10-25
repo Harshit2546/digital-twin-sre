@@ -1,0 +1,13 @@
+diff --git a/db/1-init.sql b/db/1-init.sql
+index ab34e5f..18669b3 100644
+--- a/db/1-init.sql
++++ b/db/1-init.sql
+@@ -14,7 +14,7 @@ CREATE TABLE orders (
+     idempotency_key VARCHAR(255) UNIQUE
+ );
+ 
+-CREATE INDEX idx_orders_customer_email ON orders(customer_email);
++
+ 
+ CREATE TABLE jobs (
+     id SERIAL PRIMARY KEY,

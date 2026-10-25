@@ -1,0 +1,8 @@
+{
+  "difficulty": "hard",
+  "category": "code",
+  "root_cause_summary": "Database connection leak in product endpoint unmanaged connection acquire path",
+  "files_changed": [
+    "api/main.py"
+  ]
+}

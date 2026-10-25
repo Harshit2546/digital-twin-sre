@@ -7,7 +7,16 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent
-BENCHMARK_DIR = Path(os.getenv("BENCHMARK_DIR", str(PROJECT_ROOT / "benchmark"))).resolve()
+
+# Automatically locate benchmark directory (supports bundled standalone or monorepo layouts)
+if (BASE_DIR / "benchmark").exists():
+    _DEFAULT_BENCHMARK = BASE_DIR / "benchmark"
+elif (PROJECT_ROOT / "benchmark").exists():
+    _DEFAULT_BENCHMARK = PROJECT_ROOT / "benchmark"
+else:
+    _DEFAULT_BENCHMARK = BASE_DIR / "benchmark"
+
+BENCHMARK_DIR = Path(os.getenv("BENCHMARK_DIR", str(_DEFAULT_BENCHMARK))).resolve()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL_NAME = os.getenv("MODEL_NAME", "gemini-2.5-pro")

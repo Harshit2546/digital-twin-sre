@@ -1,0 +1,36 @@
+diff --git a/api/main.py b/api/main.py
+index 53d2836..5964037 100644
+--- a/api/main.py
++++ b/api/main.py
+@@ -145,7 +145,7 @@ def get_order(id: int):
+             r = cur.fetchone()
+             if not r:
+                 raise HTTPException(status_code=404, detail="Order not found")
+-            return {"id": r[0], "product_id": r[1], "quantity": r[2], "status": r[3].lower() if r[3] else None}
++            return {"id": r[0], "product_id": r[1], "quantity": r[2], "status": r[3].lower()}
+ 
+ @app.post("/orders")
+ def create_order(order: OrderRequest, request: Request):
+diff --git a/db/1-init.sql b/db/1-init.sql
+index ab34e5f..81b3674 100644
+--- a/db/1-init.sql
++++ b/db/1-init.sql
+@@ -9,7 +9,7 @@ CREATE TABLE orders (
+     id SERIAL PRIMARY KEY,
+     product_id INTEGER REFERENCES products(id),
+     quantity INTEGER NOT NULL,
+-    status VARCHAR(50) NOT NULL,
++    status VARCHAR(50),
+     customer_email VARCHAR(255) NOT NULL,
+     idempotency_key VARCHAR(255) UNIQUE
+ );
+diff --git a/db/2-seed.sql b/db/2-seed.sql
+index bb9a360..125f76e 100644
+--- a/db/2-seed.sql
++++ b/db/2-seed.sql
+@@ -11,3 +11,5 @@ FROM generate_series(1, 500000) i;
+ 
+ SELECT setval('products_id_seq', 5000);
+ SELECT setval('orders_id_seq', 500000);
++
++UPDATE orders SET status = NULL WHERE id % 5 = 0;

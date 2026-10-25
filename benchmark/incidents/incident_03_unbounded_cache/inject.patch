@@ -1,0 +1,26 @@
+diff --git a/api/main.py b/api/main.py
+index 53d2836..ba6ea2c 100644
+--- a/api/main.py
++++ b/api/main.py
+@@ -43,8 +43,11 @@ metrics = {
+     "status_counts": {}
+ }
+ 
++@app.middleware("http")
+ @app.middleware("http")
+ async def metrics_middleware(request: Request, call_next):
++    if len(product_cache) > 150:
++        return Response(content="Memory Error", status_code=500)
+     start = time.time()
+     path = request.url.path
+     if path not in metrics["status_counts"]:
+@@ -121,8 +124,7 @@ def get_product(id: int):
+             if config.get("features", {}).get("enable_new_discount", False):
+                 price = int(price * 0.9)
+             prod = {"id": r[0], "name": r[1], "price": price, "inventory": r[3]}
+-            if len(product_cache) < config.get("cache", {}).get("max_size", 1000):
+-                product_cache[id] = prod
++            product_cache[id] = prod
+             return prod
+ 
+ @app.post("/products/{id}/price")

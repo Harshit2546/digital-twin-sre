@@ -1,0 +1,10 @@
+diff --git a/db/1-init.sql b/db/1-init.sql
+index ab34e5f..508e00a 100644
+--- a/db/1-init.sql
++++ b/db/1-init.sql
+@@ -22,3 +22,5 @@ CREATE TABLE jobs (
+     type VARCHAR(50) NOT NULL,
+     status VARCHAR(50) NOT NULL
+ );
++
++ALTER TABLE orders ADD COLUMN source VARCHAR(50) NOT NULL;

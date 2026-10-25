@@ -1,0 +1,10 @@
+diff --git a/db/1-init.sql b/db/1-init.sql
+index 18669b3..c1efb8a 100644
+--- a/db/1-init.sql
++++ b/db/1-init.sql
+@@ -22,3 +22,5 @@ CREATE TABLE jobs (
+     type VARCHAR(50) NOT NULL,
+     status VARCHAR(50) NOT NULL
+ );
++
++CREATE INDEX idx_orders_customer_email ON orders(customer_email);

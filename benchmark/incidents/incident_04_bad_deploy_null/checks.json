@@ -1,0 +1,20 @@
+{
+  "max_error_rate": 0.0,
+  "golden_checks": {
+    "4": {
+      "status": 200
+    },
+    "9": {
+      "status": 200
+    },
+    "14": {
+      "status": 200
+    },
+    "19": {
+      "status": 200
+    },
+    "24": {
+      "status": 200
+    }
+  }
+}

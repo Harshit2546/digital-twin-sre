@@ -1,0 +1,26 @@
+diff --git a/api/main.py b/api/main.py
+index 53d2836..ab46bbc 100644
+--- a/api/main.py
++++ b/api/main.py
+@@ -171,7 +171,7 @@ def create_order(order: OrderRequest, request: Request):
+             amount = r[1] * order.quantity
+             max_attempts = config['payments']['retry']['max_attempts']
+             backoff = config['payments']['retry']['backoff']
+-            timeout = config['payments'].get('timeout', 5.0)
++            timeout = None
+             
+             for attempt in range(max_attempts):
+                 try:
+diff --git a/docker-compose.yml b/docker-compose.yml
+index 1cc89c8..7dc5664 100644
+--- a/docker-compose.yml
++++ b/docker-compose.yml
+@@ -21,7 +21,7 @@ services:
+     ports:
+       - "8001:8001"
+     environment:
+-      - MODE=ok
++      - MODE=slow
+ 
+   api:
+     build: ./api

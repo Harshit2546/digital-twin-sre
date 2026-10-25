@@ -1,0 +1,8 @@
+{
+  "difficulty": "easy",
+  "category": "db",
+  "root_cause_summary": "Missing index on customer_email causing full table scan timeouts",
+  "files_changed": [
+    "db/1-init.sql"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "difficulty": "hard",
+  "category": "security",
+  "root_cause_summary": "Null pointer dereference on order status combined with unescaped prompt injection payloads logged in order traces",
+  "files_changed": [
+    "api/main.py"
+  ]
+}

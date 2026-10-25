@@ -1,0 +1,200 @@
+{"path": "/products/10"}
+{"method": "POST", "path": "/products/10/price", "body": {"price": 500}}
+{"path": "/products/10"}
+{"path": "/products/10"}
+{"path": "/products/10"}
+{"path": "/products/11"}
+{"method": "POST", "path": "/products/11/price", "body": {"price": 501}}
+{"path": "/products/11"}
+{"path": "/products/11"}
+{"path": "/products/11"}
+{"path": "/products/12"}
+{"method": "POST", "path": "/products/12/price", "body": {"price": 502}}
+{"path": "/products/12"}
+{"path": "/products/12"}
+{"path": "/products/12"}
+{"path": "/products/13"}
+{"method": "POST", "path": "/products/13/price", "body": {"price": 503}}
+{"path": "/products/13"}
+{"path": "/products/13"}
+{"path": "/products/13"}
+{"path": "/products/14"}
+{"method": "POST", "path": "/products/14/price", "body": {"price": 504}}
+{"path": "/products/14"}
+{"path": "/products/14"}
+{"path": "/products/14"}
+{"path": "/products/15"}
+{"method": "POST", "path": "/products/15/price", "body": {"price": 505}}
+{"path": "/products/15"}
+{"path": "/products/15"}
+{"path": "/products/15"}
+{"path": "/products/16"}
+{"method": "POST", "path": "/products/16/price", "body": {"price": 506}}
+{"path": "/products/16"}
+{"path": "/products/16"}
+{"path": "/products/16"}
+{"path": "/products/17"}
+{"method": "POST", "path": "/products/17/price", "body": {"price": 507}}
+{"path": "/products/17"}
+{"path": "/products/17"}
+{"path": "/products/17"}
+{"path": "/products/18"}
+{"method": "POST", "path": "/products/18/price", "body": {"price": 508}}
+{"path": "/products/18"}
+{"path": "/products/18"}
+{"path": "/products/18"}
+{"path": "/products/19"}
+{"method": "POST", "path": "/products/19/price", "body": {"price": 509}}
+{"path": "/products/19"}
+{"path": "/products/19"}
+{"path": "/products/19"}
+{"path": "/products/20"}
+{"method": "POST", "path": "/products/20/price", "body": {"price": 510}}
+{"path": "/products/20"}
+{"path": "/products/20"}
+{"path": "/products/20"}
+{"path": "/products/21"}
+{"method": "POST", "path": "/products/21/price", "body": {"price": 511}}
+{"path": "/products/21"}
+{"path": "/products/21"}
+{"path": "/products/21"}
+{"path": "/products/22"}
+{"method": "POST", "path": "/products/22/price", "body": {"price": 512}}
+{"path": "/products/22"}
+{"path": "/products/22"}
+{"path": "/products/22"}
+{"path": "/products/23"}
+{"method": "POST", "path": "/products/23/price", "body": {"price": 513}}
+{"path": "/products/23"}
+{"path": "/products/23"}
+{"path": "/products/23"}
+{"path": "/products/24"}
+{"method": "POST", "path": "/products/24/price", "body": {"price": 514}}
+{"path": "/products/24"}
+{"path": "/products/24"}
+{"path": "/products/24"}
+{"path": "/products/25"}
+{"method": "POST", "path": "/products/25/price", "body": {"price": 515}}
+{"path": "/products/25"}
+{"path": "/products/25"}
+{"path": "/products/25"}
+{"path": "/products/26"}
+{"method": "POST", "path": "/products/26/price", "body": {"price": 516}}
+{"path": "/products/26"}
+{"path": "/products/26"}
+{"path": "/products/26"}
+{"path": "/products/27"}
+{"method": "POST", "path": "/products/27/price", "body": {"price": 517}}
+{"path": "/products/27"}
+{"path": "/products/27"}
+{"path": "/products/27"}
+{"path": "/products/28"}
+{"method": "POST", "path": "/products/28/price", "body": {"price": 518}}
+{"path": "/products/28"}
+{"path": "/products/28"}
+{"path": "/products/28"}
+{"path": "/products/29"}
+{"method": "POST", "path": "/products/29/price", "body": {"price": 519}}
+{"path": "/products/29"}
+{"path": "/products/29"}
+{"path": "/products/29"}
+{"path": "/products/10"}
+{"method": "POST", "path": "/products/10/price", "body": {"price": 520}}
+{"path": "/products/10"}
+{"path": "/products/10"}
+{"path": "/products/10"}
+{"path": "/products/11"}
+{"method": "POST", "path": "/products/11/price", "body": {"price": 521}}
+{"path": "/products/11"}
+{"path": "/products/11"}
+{"path": "/products/11"}
+{"path": "/products/12"}
+{"method": "POST", "path": "/products/12/price", "body": {"price": 522}}
+{"path": "/products/12"}
+{"path": "/products/12"}
+{"path": "/products/12"}
+{"path": "/products/13"}
+{"method": "POST", "path": "/products/13/price", "body": {"price": 523}}
+{"path": "/products/13"}
+{"path": "/products/13"}
+{"path": "/products/13"}
+{"path": "/products/14"}
+{"method": "POST", "path": "/products/14/price", "body": {"price": 524}}
+{"path": "/products/14"}
+{"path": "/products/14"}
+{"path": "/products/14"}
+{"path": "/products/15"}
+{"method": "POST", "path": "/products/15/price", "body": {"price": 525}}
+{"path": "/products/15"}
+{"path": "/products/15"}
+{"path": "/products/15"}
+{"path": "/products/16"}
+{"method": "POST", "path": "/products/16/price", "body": {"price": 526}}
+{"path": "/products/16"}
+{"path": "/products/16"}
+{"path": "/products/16"}
+{"path": "/products/17"}
+{"method": "POST", "path": "/products/17/price", "body": {"price": 527}}
+{"path": "/products/17"}
+{"path": "/products/17"}
+{"path": "/products/17"}
+{"path": "/products/18"}
+{"method": "POST", "path": "/products/18/price", "body": {"price": 528}}
+{"path": "/products/18"}
+{"path": "/products/18"}
+{"path": "/products/18"}
+{"path": "/products/19"}
+{"method": "POST", "path": "/products/19/price", "body": {"price": 529}}
+{"path": "/products/19"}
+{"path": "/products/19"}
+{"path": "/products/19"}
+{"path": "/products/20"}
+{"method": "POST", "path": "/products/20/price", "body": {"price": 530}}
+{"path": "/products/20"}
+{"path": "/products/20"}
+{"path": "/products/20"}
+{"path": "/products/21"}
+{"method": "POST", "path": "/products/21/price", "body": {"price": 531}}
+{"path": "/products/21"}
+{"path": "/products/21"}
+{"path": "/products/21"}
+{"path": "/products/22"}
+{"method": "POST", "path": "/products/22/price", "body": {"price": 532}}
+{"path": "/products/22"}
+{"path": "/products/22"}
+{"path": "/products/22"}
+{"path": "/products/23"}
+{"method": "POST", "path": "/products/23/price", "body": {"price": 533}}
+{"path": "/products/23"}
+{"path": "/products/23"}
+{"path": "/products/23"}
+{"path": "/products/24"}
+{"method": "POST", "path": "/products/24/price", "body": {"price": 534}}
+{"path": "/products/24"}
+{"path": "/products/24"}
+{"path": "/products/24"}
+{"path": "/products/25"}
+{"method": "POST", "path": "/products/25/price", "body": {"price": 535}}
+{"path": "/products/25"}
+{"path": "/products/25"}
+{"path": "/products/25"}
+{"path": "/products/26"}
+{"method": "POST", "path": "/products/26/price", "body": {"price": 536}}
+{"path": "/products/26"}
+{"path": "/products/26"}
+{"path": "/products/26"}
+{"path": "/products/27"}
+{"method": "POST", "path": "/products/27/price", "body": {"price": 537}}
+{"path": "/products/27"}
+{"path": "/products/27"}
+{"path": "/products/27"}
+{"path": "/products/28"}
+{"method": "POST", "path": "/products/28/price", "body": {"price": 538}}
+{"path": "/products/28"}
+{"path": "/products/28"}
+{"path": "/products/28"}
+{"path": "/products/29"}
+{"method": "POST", "path": "/products/29/price", "body": {"price": 539}}
+{"path": "/products/29"}
+{"path": "/products/29"}
+{"path": "/products/29"}

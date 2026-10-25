@@ -1,0 +1,8 @@
+{
+  "difficulty": "medium",
+  "category": "memory",
+  "root_cause_summary": "Unbounded product cache size causing out-of-memory errors past threshold",
+  "files_changed": [
+    "api/main.py"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "max_error_rate": 0.0,
+  "golden_checks": {
+    "0": {
+      "status": 200,
+      "body": {
+        "id": 1,
+        "price": 99
+      }
+    },
+    "5": {
+      "status": 200,
+      "body": {
+        "id": 6,
+        "price": 144
+      }
+    },
+    "10": {
+      "status": 200,
+      "body": {
+        "id": 11,
+        "price": 180
+      }
+    },
+    "15": {
+      "status": 200,
+      "body": {
+        "id": 16,
+        "price": 225
+      }
+    },
+    "20": {
+      "status": 200,
+      "body": {
+        "id": 21,
+        "price": 270
+      }
+    }
+  }
+}

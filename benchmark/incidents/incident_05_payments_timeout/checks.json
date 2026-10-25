@@ -1,0 +1,20 @@
+{
+  "max_p95_latency": 2.0,
+  "golden_checks": {
+    "0": {
+      "status": 502
+    },
+    "10": {
+      "status": 502
+    },
+    "50": {
+      "status": 502
+    },
+    "100": {
+      "status": 502
+    },
+    "150": {
+      "status": 502
+    }
+  }
+}

@@ -1,0 +1,14 @@
+diff --git a/api/main.py b/api/main.py
+index 0c3b0c5..53d2836 100644
+--- a/api/main.py
++++ b/api/main.py
+@@ -133,7 +133,8 @@ def update_price(id: int, request: PriceRequest):
+             if not cur.fetchone():
+                 raise HTTPException(status_code=404, detail="Product not found")
+             conn.commit()
+-    # cache invalidation omitted
++    if id in product_cache:
++        del product_cache[id]
+     return {"status": "ok"}
+ 
+ @app.get("/orders/{id}")

@@ -1,0 +1,150 @@
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-0"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-0"}}
+{"path": "/orders/count/race-0"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-1"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-1"}}
+{"path": "/orders/count/race-1"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-2"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-2"}}
+{"path": "/orders/count/race-2"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-3"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-3"}}
+{"path": "/orders/count/race-3"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-4"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-4"}}
+{"path": "/orders/count/race-4"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-5"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-5"}}
+{"path": "/orders/count/race-5"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-6"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-6"}}
+{"path": "/orders/count/race-6"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-7"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-7"}}
+{"path": "/orders/count/race-7"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-8"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-8"}}
+{"path": "/orders/count/race-8"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-9"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-9"}}
+{"path": "/orders/count/race-9"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-10"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-10"}}
+{"path": "/orders/count/race-10"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-11"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-11"}}
+{"path": "/orders/count/race-11"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-12"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-12"}}
+{"path": "/orders/count/race-12"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-13"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-13"}}
+{"path": "/orders/count/race-13"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-14"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-14"}}
+{"path": "/orders/count/race-14"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-15"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-15"}}
+{"path": "/orders/count/race-15"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-16"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-16"}}
+{"path": "/orders/count/race-16"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-17"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-17"}}
+{"path": "/orders/count/race-17"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-18"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-18"}}
+{"path": "/orders/count/race-18"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-19"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-19"}}
+{"path": "/orders/count/race-19"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-20"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-20"}}
+{"path": "/orders/count/race-20"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-21"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-21"}}
+{"path": "/orders/count/race-21"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-22"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-22"}}
+{"path": "/orders/count/race-22"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-23"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-23"}}
+{"path": "/orders/count/race-23"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-24"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-24"}}
+{"path": "/orders/count/race-24"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-25"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-25"}}
+{"path": "/orders/count/race-25"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-26"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-26"}}
+{"path": "/orders/count/race-26"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-27"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-27"}}
+{"path": "/orders/count/race-27"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-28"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-28"}}
+{"path": "/orders/count/race-28"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-29"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-29"}}
+{"path": "/orders/count/race-29"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-30"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-30"}}
+{"path": "/orders/count/race-30"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-31"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-31"}}
+{"path": "/orders/count/race-31"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-32"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-32"}}
+{"path": "/orders/count/race-32"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-33"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-33"}}
+{"path": "/orders/count/race-33"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-34"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-34"}}
+{"path": "/orders/count/race-34"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-35"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-35"}}
+{"path": "/orders/count/race-35"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-36"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-36"}}
+{"path": "/orders/count/race-36"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-37"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-37"}}
+{"path": "/orders/count/race-37"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-38"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-38"}}
+{"path": "/orders/count/race-38"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-39"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-39"}}
+{"path": "/orders/count/race-39"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-40"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-40"}}
+{"path": "/orders/count/race-40"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-41"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-41"}}
+{"path": "/orders/count/race-41"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-42"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-42"}}
+{"path": "/orders/count/race-42"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-43"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-43"}}
+{"path": "/orders/count/race-43"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-44"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-44"}}
+{"path": "/orders/count/race-44"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-45"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-45"}}
+{"path": "/orders/count/race-45"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-46"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-46"}}
+{"path": "/orders/count/race-46"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-47"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-47"}}
+{"path": "/orders/count/race-47"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-48"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-48"}}
+{"path": "/orders/count/race-48"}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-49"}}
+{"method": "POST", "path": "/orders", "body": {"product_id": 2, "quantity": 1, "customer_email": "dup@example.com", "idempotency_key": "race-49"}}
+{"path": "/orders/count/race-49"}

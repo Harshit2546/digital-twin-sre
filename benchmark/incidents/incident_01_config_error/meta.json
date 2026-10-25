@@ -1,0 +1,8 @@
+{
+  "difficulty": "easy",
+  "category": "config",
+  "root_cause_summary": "Database connection pool size set to 1 causing connection exhaustion under load",
+  "files_changed": [
+    "config/app.yaml"
+  ]
+}

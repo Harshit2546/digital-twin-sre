@@ -1,0 +1,26 @@
+diff --git a/api/main.py b/api/main.py
+index 53d2836..77d96fd 100644
+--- a/api/main.py
++++ b/api/main.py
+@@ -152,7 +152,7 @@ def create_order(order: OrderRequest, request: Request):
+     logger.info(f"Received order for product {order.product_id} from {order.customer_email}")
+     with pool.connection() as conn:
+         with conn.cursor() as cur:
+-            cur.execute("SELECT id FROM orders WHERE idempotency_key = %s", (order.idempotency_key,))
++            cur.execute("SELECT id FROM orders WHERE idempotency_key = %s", (order.idempotency_key,)); time.sleep(0.05)
+             existing = cur.fetchone()
+             if existing:
+                 return {"order_id": existing[0], "status": "COMPLETED"}
+diff --git a/db/1-init.sql b/db/1-init.sql
+index ab34e5f..e9f0d9b 100644
+--- a/db/1-init.sql
++++ b/db/1-init.sql
+@@ -11,7 +11,7 @@ CREATE TABLE orders (
+     quantity INTEGER NOT NULL,
+     status VARCHAR(50) NOT NULL,
+     customer_email VARCHAR(255) NOT NULL,
+-    idempotency_key VARCHAR(255) UNIQUE
++    idempotency_key VARCHAR(255)
+ );
+ 
+ CREATE INDEX idx_orders_customer_email ON orders(customer_email);

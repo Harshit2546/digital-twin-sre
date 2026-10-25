@@ -1,0 +1,8 @@
+{
+  "difficulty": "easy",
+  "category": "code",
+  "root_cause_summary": "Null pointer dereference on order status field for orders with null status",
+  "files_changed": [
+    "api/main.py"
+  ]
+}

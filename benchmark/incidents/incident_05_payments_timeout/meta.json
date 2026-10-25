@@ -1,0 +1,8 @@
+{
+  "difficulty": "medium",
+  "category": "integration",
+  "root_cause_summary": "Payments client lacks a timeout, causing worker threads to block indefinitely on downstream latency",
+  "files_changed": [
+    "api/main.py"
+  ]
+}
