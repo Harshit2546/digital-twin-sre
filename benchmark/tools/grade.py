@@ -8,6 +8,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("incident")
     parser.add_argument("--base-url", default="http://localhost:8000")
+    parser.add_argument("--concurrency", type=int, default=20)
     args = parser.parse_args()
 
     traffic_file = f"../incidents/{args.incident}/traffic.jsonl"
@@ -16,8 +17,16 @@ def main():
     with open(checks_file) as f:
         checks = json.load(f)
 
-    # Replay
-    result = subprocess.run(["./replay.py", traffic_file, "--base-url", args.base_url], capture_output=True, text=True)
+    # Replay with concurrency to prevent timeouts
+    result = subprocess.run([
+        sys.executable,
+        "./replay.py",
+        traffic_file,
+        "--base-url",
+        args.base_url,
+        "--concurrency",
+        str(args.concurrency)
+    ], capture_output=True, text=True)
     if result.returncode != 0:
         print("Replay failed")
         print(result.stderr)

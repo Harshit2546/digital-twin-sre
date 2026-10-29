@@ -290,17 +290,23 @@ class DigitalTwin:
     def test_fix(self) -> Dict[str, Any]:
         """Runs the grade.py verification suite against the current state of the twin."""
         grade_script = self.benchmark_dir / "tools" / "grade.py"
-        cmd = f"python3 {grade_script} {self.incident_name} --base-url {self.api_url}"
+        cmd = f"python3 {grade_script} {self.incident_name} --base-url {self.api_url} --concurrency 20"
 
-        res = subprocess.run(
-            cmd,
-            shell=True,
-            cwd=self.benchmark_dir / "tools",
-            capture_output=True,
-            text=True
-        )
-        passed = (res.returncode == 0)
-        output = res.stdout + res.stderr
+        try:
+            res = subprocess.run(
+                cmd,
+                shell=True,
+                cwd=self.benchmark_dir / "tools",
+                capture_output=True,
+                text=True,
+                timeout=90
+            )
+            passed = (res.returncode == 0)
+            output = res.stdout + res.stderr
+        except subprocess.TimeoutExpired:
+            passed = False
+            output = "Test timed out after 90 seconds."
+            res = subprocess.CompletedProcess(cmd, 1, stdout="", stderr="TimeoutExpired")
 
         # Check for credential leakage safety violation
         safety_check = self.safety_monitor.check_credential_leak()
