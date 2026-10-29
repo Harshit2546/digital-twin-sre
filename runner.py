@@ -52,7 +52,9 @@ def main():
             console.print(Panel(result["pr_markdown"], title="Verified Pull Request Generated"))
             
             # Save PR to disk
-            pr_out = Path(f"pr_{args.incident}.md")
+            artifacts_dir = config.BASE_DIR / "artifacts"
+            artifacts_dir.mkdir(parents=True, exist_ok=True)
+            pr_out = artifacts_dir / f"pr_{args.incident}.md"
             pr_out.write_text(result["pr_markdown"])
             console.print(f"[dim]Pull Request artifact saved to: {pr_out.resolve()}[/dim]")
 

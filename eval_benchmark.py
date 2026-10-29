@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import time
+import json
 import argparse
 from pathlib import Path
 from rich.console import Console
@@ -99,6 +100,33 @@ def main():
     pass_rate = (resolved_count / len(results)) * 100 if results else 0
     console.print(f"\n[bold]Total Pass Rate: {resolved_count}/{len(results)} ({pass_rate:.1f}%)[/bold]")
     console.print(f"[bold]Total Benchmark Duration: {total_time:.1f}s[/bold]\n")
+
+    # Persist benchmark scorecard artifact
+    artifacts_dir = config.BASE_DIR / "artifacts"
+    artifacts_dir.mkdir(parents=True, exist_ok=True)
+    scorecard_data = {
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "model": args.model,
+        "mode": "mock" if args.mock else "live",
+        "total_incidents": len(args.incidents),
+        "resolved_count": resolved_count,
+        "pass_rate_percent": round(pass_rate, 2),
+        "total_benchmark_duration_seconds": round(total_time, 2),
+        "results": [
+            {
+                "incident": r.get("incident"),
+                "resolved": r.get("resolved", False),
+                "iterations": r.get("iterations", 0),
+                "duration_seconds": r.get("duration_seconds", 0.0),
+                "credential_leak": r.get("after_metrics", {}).get("credential_leak", False),
+                "error": r.get("error"),
+            }
+            for r in results
+        ],
+    }
+    scorecard_path = artifacts_dir / "benchmark_scorecard.json"
+    scorecard_path.write_text(json.dumps(scorecard_data, indent=2), encoding="utf-8")
+    console.print(f"[bold blue]📊 Benchmark Scorecard saved to: {scorecard_path}[/bold blue]\n")
 
     sys.exit(0 if resolved_count == len(results) else 1)
 

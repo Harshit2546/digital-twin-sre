@@ -78,15 +78,18 @@ class AutonomousSREAgent:
 
         # If mock mode is requested or explicitly forced
         if mock_mode or os.getenv("MOCK_SOLVER") == "1":
-            return self._run_mock_solver(alert_md, before_metrics, start_time)
+            result = self._run_mock_solver(alert_md, before_metrics, start_time)
+        else:
+            # Run with live LLM via LiteLLM
+            try:
+                result = self._run_llm_loop(initial_prompt, before_metrics, max_iterations, start_time)
+            except Exception as e:
+                console.print(f"[bold red]LLM Provider Error: {e}[/bold red]")
+                console.print("[yellow]Falling back to Deterministic Solver for continuous evaluation...[/yellow]")
+                result = self._run_mock_solver(alert_md, before_metrics, start_time)
 
-        # Run with live LLM via LiteLLM
-        try:
-            return self._run_llm_loop(initial_prompt, before_metrics, max_iterations, start_time)
-        except Exception as e:
-            console.print(f"[bold red]LLM Provider Error: {e}[/bold red]")
-            console.print("[yellow]Falling back to Deterministic Solver for continuous evaluation...[/yellow]")
-            return self._run_mock_solver(alert_md, before_metrics, start_time)
+        self._save_artifacts(result, before_metrics)
+        return result
 
     def _run_llm_loop(
         self,
@@ -185,6 +188,35 @@ class AutonomousSREAgent:
             "git_diff": git_diff,
             "pr_markdown": pr_markdown,
         }
+
+    def _save_artifacts(self, result: Dict[str, Any], before_metrics: dict) -> None:
+        """Persists verified PR markdown and detailed trajectory JSON into artifacts/."""
+        artifacts_dir = config.BASE_DIR / "artifacts"
+        artifacts_dir.mkdir(parents=True, exist_ok=True)
+
+        incident_id = self.twin.incident_name
+        pr_markdown = result.get("pr_markdown", "")
+        if pr_markdown:
+            pr_path = artifacts_dir / f"pr_{incident_id}.md"
+            pr_path.write_text(pr_markdown, encoding="utf-8")
+
+        traj_data = {
+            "incident_id": incident_id,
+            "model": self.model_name,
+            "resolved": result.get("resolved", False),
+            "iterations": result.get("iterations", self.iterations),
+            "duration_seconds": result.get("duration_seconds", 0.0),
+            "before_metrics": before_metrics,
+            "after_metrics": result.get("after_metrics", self.latest_test_metrics),
+            "git_diff": result.get("git_diff", ""),
+            "diagnosis_summary": self.diagnosis_summary,
+            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        }
+        traj_path = artifacts_dir / f"trajectory_{incident_id}.json"
+        traj_path.write_text(json.dumps(traj_data, indent=2), encoding="utf-8")
+        console.print(f"[dim]📄 Trajectory saved to: {traj_path}[/dim]")
+        if pr_markdown:
+            console.print(f"[dim]📝 PR markdown saved to: {artifacts_dir / f'pr_{incident_id}.md'}[/dim]")
 
     def _run_mock_solver(self, alert_md: str, before_metrics: dict, start_time: float) -> Dict[str, Any]:
         """

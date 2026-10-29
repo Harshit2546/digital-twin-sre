@@ -25,6 +25,7 @@ build/
 /tmp/
 logs/
 *.log
+artifacts/
 
 # OS metadata
 .DS_Store
