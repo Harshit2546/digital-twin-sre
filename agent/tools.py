@@ -36,6 +36,7 @@ class AgentTools:
             else (twin.workspace_dir if twin else Path("."))
         ).resolve()
         self.graph = graph or SystemTopologyGraph()
+        self.touched_files: set[str] = set()
 
     # =========================================================================
     # 1. Graph Intelligence Tools (The "Brain")
@@ -186,6 +187,7 @@ class AgentTools:
 
             updated = content.replace(old_str, new_str, 1)
             target.write_text(updated, encoding="utf-8")
+            self.touched_files.add(str(path))
             return f"Success: Successfully patched '{path}'."
         except Exception as e:
             return f"Error editing file '{path}': {e}"
@@ -204,6 +206,7 @@ class AgentTools:
         try:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(content, encoding="utf-8")
+            self.touched_files.add(str(path))
             return f"Success: File '{path}' written successfully."
         except Exception as e:
             return f"Error writing file '{path}': {e}"
