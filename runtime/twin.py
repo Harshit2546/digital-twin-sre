@@ -119,17 +119,29 @@ class DigitalTwin:
         }
 
     def _wait_for_health(self, timeout_seconds: int = 30):
-        """Polls the API health endpoint until it returns 200 OK."""
+        """Polls API and payments-stub health endpoints until they are ready."""
         deadline = time.time() + timeout_seconds
         while time.time() < deadline:
+            api_ok = False
+            payments_ok = False
             try:
-                r = httpx.get(f"{self.api_url}/health", timeout=1.0)
-                if r.status_code == 200:
-                    return
+                r_api = httpx.get(f"{self.api_url}/health", timeout=1.0)
+                if r_api.status_code == 200:
+                    api_ok = True
             except Exception:
                 pass
-            time.sleep(1.0)
-        raise TimeoutError(f"Digital Twin API did not become healthy within {timeout_seconds}s at {self.api_url}")
+
+            try:
+                r_pay = httpx.get(f"{self.payments_url}/ledger", timeout=1.0)
+                if r_pay.status_code == 200:
+                    payments_ok = True
+            except Exception:
+                pass
+
+            if api_ok and payments_ok:
+                return
+            time.sleep(0.5)
+        raise TimeoutError(f"Digital Twin services did not become healthy within {timeout_seconds}s (API: {self.api_url}, Payments: {self.payments_url})")
 
     # --- Agent Sandboxed Interaction Tools ---
 
@@ -289,6 +301,11 @@ class DigitalTwin:
 
     def test_fix(self) -> Dict[str, Any]:
         """Runs the grade.py verification suite against the current state of the twin."""
+        # Auto-restart API if code or config in shopfront was modified to ensure new code is loaded
+        diff_status = subprocess.run("git status --porcelain", shell=True, cwd=self.shopfront_dir, capture_output=True, text=True).stdout
+        if any(f in diff_status for f in ["api/", "config/"]):
+            self.restart_service("api")
+
         grade_script = self.benchmark_dir / "tools" / "grade.py"
         cmd = f"python3 {grade_script} {self.incident_name} --base-url {self.api_url} --concurrency 20"
 

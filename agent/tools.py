@@ -407,6 +407,43 @@ class AgentTools:
                     },
                 },
             },
+            {
+                "type": "function",
+                "function": {
+                    "name": "view_logs",
+                    "description": "Reads recent structured JSON logs from the requested service inside the twin (e.g. 'api', 'worker').",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "service": {"type": "string", "description": "Service name ('api' or 'worker'). Default is 'api'."},
+                            "lines": {"type": "integer", "description": "Number of log lines to retrieve (default 50)."},
+                        },
+                        "required": [],
+                    },
+                },
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "restart_service",
+                    "description": "Restarts a single service container (e.g. 'api', 'worker') to reload updated code or config.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "service": {"type": "string", "description": "Service name to restart (default 'api')."},
+                        },
+                        "required": [],
+                    },
+                },
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "rebuild_and_restart",
+                    "description": "Rebuilds and restarts all twin containers (necessary when changing database schemas in db/ or Dockerfiles).",
+                    "parameters": {"type": "object", "properties": {}, "required": []},
+                },
+            },
         ]
 
     # =========================================================================
